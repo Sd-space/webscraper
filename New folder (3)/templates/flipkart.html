@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Product Scraper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 560px; 
+            height: 180px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='flipkart.jpeg') }}" alt="Logo" class="logo">
+        <h1 class="text-center">Flipkart Product Scraper</h1>
+        <a href="https://www.flipkart.com" target="_blank" class="btn btn-outline-info"><b>Link to FLIPKART</b></a>
+
+        <form action="{{ url_for('scrape_flipkart_route') }}" method="POST" class="mt-5">
+            <div class="form-group">
+                <label for="flipkart_url">Enter Flipkart Product URL:</label>
+                <input type="text" id="flipkart_url" name="url" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="flipkart_csv">Enter CSV file name:</label>
+                <input type="text" id="flipkart_csv" name="csv_filename" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="flipkart_pages">Enter Number of Pages:</label>
+                <input type="text" id="flipkart_pages" name="num_pages" class="form-control">
+            </div>
+            <input type="submit" value="Scrape Data" class="btn btn-primary mt-3">       
+        </form>
+    </div>
+</body>
+</html>
