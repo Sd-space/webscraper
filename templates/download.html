@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Successful</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .centered-container {
+            position: center ;
+            max-width: 600px; 
+            margin: auto; 
+            padding: 20px;
+            border: 3px solid #02060b;
+            border-radius: 30px;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.3),
+                        0 0 10px 5px #d3dbff,
+                        5px 5px 5px rgba(0,0,0,0.3),
+                        0 0 10px 10px #ffee14;
+        }
+
+        
+        @media (min-aspect-ratio: 16/9) {
+            .bgvid {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .bgvid {
+                width: auto;
+                height: 100%;
+            }
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="video-overlay">
+        <video autoplay loop muted plays-inline class="bgvid">
+            <source src="{{ url_for('static', filename='bg2vid.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="alert alert-success" role="alert">
+        <b>Success! Your file is ready to Download...</b>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="centered-container" style="background-color: rgba(red, green, blue, alpha);">
+        <h1 class="text-center mt-5" style="color: white;"><strong>Your Data is Scraped Successfully</strong></h1>
+        <br>
+        <p class="text-center" style="color: palegoldenrod;"><b>You can download the scraped data file click on the link below:</b></p>
+        <br>
+        <div class="text-center">
+            <p class="text-center"><a href="{{ url_for('download_file', filename=filename) }}" class="btn btn-success"><b>Download CSV File</b></a></p>
+            <p class="text-center"><a href="{{ url_for('download_excel', filename=filename) }}" class="btn btn-success"><b>Download Excel File</b></a></p>
+        </div>
+    </div>
+</body>
+</html>

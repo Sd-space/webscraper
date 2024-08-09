@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Product Scraper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 560px; 
+            height: 180px; 
+        }
+        
+        .form-control {
+            border: 1px solid #000000; 
+            border-radius: 5px; 
+            padding: 5px; 
+            transition: border-color 0.3s; 
+        }
+
+        .form-control:focus {
+            border-color: #007bff; 
+            outline: none; 
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+        }
+
+        .card {
+            margin-right: 10px; 
+            border: 0px solid #000000;
+            width: 70%; 
+            margin: 0 auto; 
+            background-color: rgba(255, 255, 255, 0.0);
+            box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2)
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="video-overlay">
+        <video autoplay loop muted plays-inline class="bgvid">
+            <source src="{{ url_for('static', filename='bg2vid.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container">
+        <div class="card mb-3" style="color: white;">
+            <img src="{{ url_for('static', filename='2flipkart.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h1 class="text-center">Flipkart Product Scraper</h1>
+                <br>
+              <p class="card-text" style="color: white;"><i>This is the page where you can scrape the data of Flipkart with the help of BeautifulSoup.</i></p>
+              <br>
+              <b class="card-text">Click on the link to visit the Flipkart website : </b>
+              <a href="https://www.flipkart.com" target="_blank" class="btn btn-info" style="background-color:green"><b>Visit Flipkart</b></a>
+            </div>
+          </div>
+    </div>
+
+    <div class="container" style="color: gold;">  
+        <form action="{{ url_for('scrape_flipkart_route') }}" method="POST" class="mt-5">
+            <div class="form-group" style>
+                <label for="flipkart"><b>Enter Flipkart Product URL:</b></label>
+                <input type="text" id="flipkart" name="url" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="flipkart_csv"><b>Enter CSV file name:</b></label>
+                <input type="text" id="flipkart_csv" name="csv_filename" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="flipkart_pages"><b>Enter Number of Pages:</b></label>
+                <input type="text" id="flipkart_pages" name="num_pages" class="form-control">
+            </div>
+            <input type="submit" value="Scrape Data" class="btn btn-primary btn-lg mt-3" style="background-color: green;">       
+        </form>
+    </div>
+</body>
+</html>

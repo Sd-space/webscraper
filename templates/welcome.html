@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .header-text {
+            position: relative;
+            font-style: italic;
+            justify-self: center;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            border-color: #be7fb6;
+        }
+
+        .main-section {
+            padding-top: 50px;
+        }
+
+        .centered-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 10px;
+            padding: 5px;
+            border: 2px #0000;
+        }
+
+        .card-group {
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-right: 10px;
+            text-align: center;
+            border: 3px solid cyan;
+            color: #002942;
+            box-shadow: #603cff
+            
+        }
+
+        .text-center {
+            color: #ffffff;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+            .bgvid {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .bgvid {
+                width: auto;
+                height: 100%;
+            }
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="video-overlay">
+        <video autoplay loop muted plays-inline class="bgvid">
+            <source src="{{ url_for('static', filename='bg3vid.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+    <div class ="container-fluid">
+        <div class="text-center">
+        <br>
+        <h1 class="card-text" style="color: cyan;"><b>Welcome to Web Scraping Website</b></h1>
+        <br>
+        <h6 class="card-text" style="color: gold;"><i>Web scraping is a technique used to extract data from websites. It involves sending HTTP requests to the website, downloading the HTML content, and then extracting the desired data using a tool like BeautifulSoup.</i></h6>  
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h1 class="mt-5"><b>Welcome to our Product Scraping Website</b></h1><br>
+        <h5 style="color: gold;"><b>Please select the platform you want to scrape:</b></h5>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.0); box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2)">
+                    <img src="{{ url_for('static', filename='1amazon.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: gold ;"><b>AMAZON Scraper</b></h5>
+                        <p class="card-text" style="color: gold;">Click the link below to access the Amazon Scraper: </p>
+                        <a href="{{ url_for('amazon') }}" target="_blank" class="btn btn-success  btn-lg"><b>Scrape AMAZON</b></a><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.0); box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2)">
+                    <img src="{{ url_for('static', filename='1flipkart.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: gold;"><b>FLIPKART Scraper</b></h5>
+                        <p class="card-text" style="color: gold;">Click the link below to access the Amazon Scraper: </p>
+                        <a href="{{ url_for('flipkart') }}" target="_blank"
+                            class="btn btn-success  btn-lg"><b>Scrape FLIPKART</b></a><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
