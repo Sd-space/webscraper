@@ -89,7 +89,7 @@ def scrape_flipkart(url, num_pages):
 # Route for the welcome page
 @app.route('/')
 def welcome():
-    return render_template('welcome.html', css_file=url_for('static', filename='style.css'))
+    return render_template('index.html', css_file=url_for('static', filename='style.css'))
 
 # Route for Amazon scraping page
 @app.route('/amazon')
